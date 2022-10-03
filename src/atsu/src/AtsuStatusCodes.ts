@@ -7,6 +7,7 @@ export enum AtsuStatusCodes {
     OwnCallsign,
     NoHoppieConnection,
     NoTelexConnection,
+    NoAcarsConnection,
     TelexDisabled,
     ComFailed,
     NoAtc,

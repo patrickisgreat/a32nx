@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0
 
 import React, { FC, useEffect, useState } from 'react';
-import { Metar } from '@flybywiresim/api-client';
+import { Metar } from '@patrickisgreat/fbw-api-client-fork';
 import { Droplet, Speedometer2, ThermometerHalf, Wind } from 'react-bootstrap-icons';
 import useInterval from '@instruments/common/useInterval';
 import { t } from '../../translation';

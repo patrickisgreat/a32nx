@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import React, { useState, useEffect, useCallback } from 'react';
-import * as apiClient from '@flybywiresim/api-client';
+import * as apiClient from '@patrickisgreat/fbw-api-client-fork';
 import useInterval from '@instruments/common/useInterval';
 import { Link } from 'react-router-dom';
 import { CloudArrowDown, Gear, InfoCircle } from 'react-bootstrap-icons';

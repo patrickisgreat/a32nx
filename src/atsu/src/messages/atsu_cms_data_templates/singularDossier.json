@@ -1,0 +1,221 @@
+{
+    "__typename": "Dossier",
+    "id": "D60a4cea50adbd79f1ebb996d",
+    "repeat": false,
+    "tail": "A6-EOU",
+    "aircraft": {
+        "__typename": "Aircraft",
+        "acType": "A380",
+        "msn": 205,
+        "operator": "UAE"
+    },
+    "flight": null,
+    "ata": 2159,
+    "eventDate": "2021-05-03T22:00:00.000Z",
+    "created": "2021-05-03T22:00:00.000Z",
+    "read": true,
+    "status": "NEW",
+    "priority": "Low",
+    "groupId": "G60a4cea50adbd79f1ebb996c",
+    "isSPM": false,
+    "advice": null,
+    "spmAlerts": [],
+    "inServiceEvents": {
+        "__typename": "InServiceEvent",
+        "count": 0,
+        "delayMinutes": null,
+        "lastDelayDate": null
+    },
+    "history": [
+        {
+            "__typename": "ObservationHistory",
+            "date": "2021-05-03T08:00:00.000Z",
+            "flightPhase": 1,
+            "present": true
+        }
+    ],
+    "context": null,
+    "troubles": [
+        {
+            "__typename": "Trouble",
+            "key": 21590081089500,
+            "date": "2021-05-03T22:00:00.000Z",
+            "observations": [
+                {
+                    "__typename": "Observation",
+                    "ata": 2159,
+                    "code": "2159F2TT",
+                    "title": "FAN-CONDENSER A2,SCS2(205HW1)",
+                    "behaviour": null,
+                    "classNumber": null,
+                    "cmsClass4": null
+                }
+            ],
+            "history": [
+                {
+                    "__typename": "ObservationHistory",
+                    "date": "2021-05-03T08:00:00.000Z",
+                    "flightPhase": 1,
+                    "present": true
+                }
+            ],
+            "title": "Fault of the SPDB Power Switching of the Fan",
+            "effects": [
+                {
+                    "__typename": "Effect",
+                    "code": 21590000000000000000,
+                    "title": "COMPLETE SYSTEM FAULT",
+                    "reported": false
+                },
+                {
+                    "__typename": "Effect",
+                    "code": 2159000000000000000,
+                    "title": "PARTIAL SYSTEM FAULT",
+                    "reported": false
+                }
+            ],
+            "conflict": [
+                {
+                    "__typename": "Equipment",
+                    "fin": "205HW1",
+                    "name": ""
+                },
+                {
+                    "__typename": "Equipment",
+                    "fin": "213XY",
+                    "name": ""
+                }
+            ],
+            "occurrence": 1
+        }
+    ],
+    "effects": [
+        {
+            "__typename": "Effect",
+            "code": "2159S000",
+            "title": "EVENT IN ATA 2159",
+            "reported": false
+        }
+    ],
+    "timeline": {
+        "__typename": "TimelineConnection",
+        "nodes": []
+    },
+    "experience": {
+        "__typename": "Experience",
+        "logbooks": [
+            {
+                "__typename": "NLPStatistics",
+                "lastUpdate": "2022-07-13T20:07:40.445Z",
+                "totalCases": 0,
+                "amms": [],
+                "figures": [
+                    {
+                        "__typename": "Equipment",
+                        "fin": "205HW1",
+                        "name": "-",
+                        "successRate": null,
+                        "cases": null,
+                        "lastRemovalDate": null
+                    },
+                    {
+                        "__typename": "Equipment",
+                        "fin": "213XY",
+                        "name": "-",
+                        "successRate": null,
+                        "cases": null,
+                        "lastRemovalDate": null
+                    }
+                ],
+                "scope": "aircraft"
+            },
+            {
+                "__typename": "NLPStatistics",
+                "lastUpdate": "2022-07-13T20:07:40.445Z",
+                "totalCases": 0,
+                "amms": [],
+                "figures": [
+                    {
+                        "__typename": "Equipment",
+                        "fin": "205HW1",
+                        "name": "-",
+                        "successRate": null,
+                        "cases": null,
+                        "lastRemovalDate": null
+                    },
+                    {
+                        "__typename": "Equipment",
+                        "fin": "213XY",
+                        "name": "-",
+                        "successRate": null,
+                        "cases": null,
+                        "lastRemovalDate": null
+                    }
+                ],
+                "scope": "fleet"
+            },
+            {
+                "__typename": "NLPStatistics",
+                "lastUpdate": "2022-07-13T20:07:39.742Z",
+                "totalCases": 0,
+                "amms": [],
+                "figures": [],
+                "scope": "worldwide"
+            }
+        ],
+        "feedback": []
+    },
+    "summaryExperience": {
+        "__typename": "NLPStatistics",
+        "lastUpdate": "2022-07-13T20:07:40.444Z",
+        "totalCases": 0,
+        "amms": [],
+        "figures": [
+            {
+                "__typename": "Equipment",
+                "fin": "205HW1",
+                "name": "-",
+                "successRate": null,
+                "cases": null,
+                "lastRemovalDate": null
+            },
+            {
+                "__typename": "Equipment",
+                "fin": "213XY",
+                "name": "-",
+                "successRate": null,
+                "cases": null,
+                "lastRemovalDate": null
+            }
+        ],
+        "scope": null
+    },
+    "techRequests": [],
+    "tfuIsi": [],
+    "potential": true,
+    "observations": [
+        {
+            "__typename": "Observation",
+            "ata": 2159,
+            "code": "2159F2TT",
+            "title": "FAN-CONDENSER A2,SCS2(205HW1)",
+            "behaviour": null,
+            "classNumber": null,
+            "cmsClass4": null
+        }
+    ],
+    "dispatchSolutions": [],
+    "melItem": null,
+    "maintenanceControlRequest": null,
+    "expertiseTechRequest": null,
+    "lastFeedback": null,
+    "firstObservation": {
+        "__typename": "Observation",
+        "ata": 2159,
+        "code": "2159F2TT",
+        "title": "FAN-CONDENSER A2,SCS2(205HW1)",
+        "behaviour": null,
+        "classNumber": null,
+        "cmsClass4": null
+    }
+},

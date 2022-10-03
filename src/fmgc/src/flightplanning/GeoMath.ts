@@ -99,7 +99,7 @@ export class GeoMath {
   public static directedDistanceToGo(from: Coordinates, to: Coordinates, acDirectedLineBearing: number): NauticalMiles {
       const absDtg = Avionics.Utils.computeGreatCircleDistance(from, to);
 
-      // @todo should be abeam distance
+      // TODO: should be abeam distance
       if (acDirectedLineBearing >= 90 && acDirectedLineBearing <= 270) {
           // Since a line perpendicular to the leg is formed by two 90 degree angles, an aircraftLegBearing outside
           // (North - 90) and (North + 90) is in the lower quadrants of a plane centered at the TO fix. This means

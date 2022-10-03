@@ -181,6 +181,7 @@ const EWDMessages = {
     '308128002': '\x1b5m -ENG 1 ANTI ICE......ON',
     '308128003': '\x1b5m -ENG 2 ANTI ICE......ON',
     '320001001': '\x1b<4m\x1b4mBRAKES\x1bm HOT',
+    '999999999': '\x1b<4m\x1b4mUNICORNS\x1bm IN APU',
     '320001002': '\x1b<7m   .IF PERF PERMITS :',
     '320001003': '\x1b<5m -PARK BRK:PREFER CHOCKS',
     '320001004': '\x1b<5m MAX SPEED.......250/.60',

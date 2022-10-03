@@ -4,6 +4,7 @@ import { UplinkMonitor } from './UplinkMessageMonitoring';
 import { UplinkMessageInterpretation } from './UplinkMessageInterpretation';
 import { AtsuMessageComStatus } from '../messages/AtsuMessage';
 
+// TODO: and this
 export class UplinkMessageStateMachine {
     public static initialize(atsu: Atsu, message: CpdlcMessage): void {
         message.CloseAutomatically = !UplinkMessageInterpretation.MessageRemainsOnDcdu(message);

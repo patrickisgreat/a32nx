@@ -1,7 +1,7 @@
 //  Copyright (c) 2021 FlyByWire Simulations
 //  SPDX-License-Identifier: GPL-3.0
 
-import { ATC } from '@flybywiresim/api-client';
+import { ATC } from '@patrickisgreat/fbw-api-client-fork';
 import { FmgcFlightPhase } from '@shared/flightphase';
 import { NXDataStore } from '@shared/persistence';
 import { DatalinkConfiguration, DatalinkProviders, MaxSearchRange, OwnAircraft, VdlMaxDatarate } from './Common';
@@ -105,7 +105,7 @@ class Airport {
 
     public Distance = 0.0;
 
-    public Datarates: [ boolean, number ][] = Array(DatalinkProviders.ProviderCount).fill([false, 0]);
+    public Datarates: [boolean, number][] = Array(DatalinkProviders.ProviderCount).fill([false, 0]);
 }
 
 /*
@@ -240,8 +240,8 @@ export class Vhf {
         const dLat = deg2rad(this.presentPosition.Latitude - latitude); // deg2rad below
         const dLon = deg2rad(this.presentPosition.Longitude - longitude);
         const a = Math.sin(dLat / 2) * Math.sin(dLat / 2)
-              + Math.cos(deg2rad(latitude)) * Math.cos(deg2rad(this.presentPosition.Latitude))
-              * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            + Math.cos(deg2rad(latitude)) * Math.cos(deg2rad(this.presentPosition.Latitude))
+            * Math.sin(dLon / 2) * Math.sin(dLon / 2);
         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         const d = R * c * 0.5399568; // Distance in nm
 
@@ -265,10 +265,10 @@ export class Vhf {
                             const datalinkFrequency = DatalinkConfiguration[key];
 
                             if (frequency >= datalinkFrequency - 0.009 && frequency <= datalinkFrequency + 0.009) {
-                            // check 8.33 kHz spacing
+                                // check 8.33 kHz spacing
                                 this.frequencyOverlap[key] += 1;
                             } else if (frequency >= datalinkFrequency - 0.025 && frequency <= datalinkFrequency + 0.025) {
-                            // check the direct 25 kHz neighbors for SITA
+                                // check the direct 25 kHz neighbors for SITA
                                 this.frequencyOverlap[key] += 1;
                             }
                         }

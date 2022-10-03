@@ -1,0 +1,126 @@
+{
+    "metas": {
+      "cannibal_s3_bucket": {
+        "Type": "String",
+        "Value": "s3-app-2h23-044941076285-delivery-master-eu-west-1"
+      },
+      "cannibal_aircraft_msn": {
+        "Type": "String",
+        "Value": "7411"
+      },
+      "cannibal_operator_icao": {
+        "Type": "String",
+        "Value": "APJ"
+      },
+      "cannibal_msg_sub_type": {
+        "Type": "String",
+        "Value": "PFR"
+      },
+      "cannibal_msg_type": {
+        "Type": "String",
+        "Value": "CMS"
+      },
+      "cannibal_msg_imi": {
+        "Type": "String",
+        "Value": "MPF"
+      },
+      "cannibal_msg_id": {
+        "Type": "String",
+        "Value": "A9A2NX3DM6PFBG61"
+      },
+      "cannibal_msg_is_pfr": {
+        "Type": "String",
+        "Value": "true"
+      },
+      "cannibal_msg_dto": {
+        "Type": "String",
+        "Value": "SAPfrDtoV3"
+      },
+      "cannibal_msg_class": {
+        "Type": "String",
+        "Value": "CmsSaPfr"
+      },
+      "cannibal_flight_number": {
+        "Type": "String",
+        "Value": "MM312"
+      },
+      "cannibal_aircraft_type": {
+        "Type": "String",
+        "Value": "A320"
+      },
+      "cannibal_msg_version": {
+        "Type": "String",
+        "Value": "3"
+      },
+      "cannibal_owner_icao": {
+        "Type": "String",
+        "Value": "87Z"
+      },
+      "cannibal_aircraft_family": {
+        "Type": "String",
+        "Value": "A320"
+      },
+      "cannibal_s3_key": {
+        "Type": "String",
+        "Value": "downlink/CMS/20220322/JA10VA_2022-03-22T00-00-00.000Z_A9A2NX3DM6PFBG61_V3.json"
+      },
+      "cannibal_msg_smi": {
+        "Type": "String",
+        "Value": "CFD"
+      },
+      "cannibal_aircraft_tailnumber": {
+        "Type": "String",
+        "Value": "JA10VA"
+      },
+      "cannibal_msg_utc_reception_date_time": {
+        "Type": "String",
+        "Value": "2022-03-22T00:00:00.000Z"
+      },
+      "cannibal_list_applications": {
+        "Type": "String.Array",
+        "Value": "[\"/SKM/PROD/1.0/SHM\",\"/SKYWISE/PROD/1.0/FOUNDRY\"]"
+      },
+      "cannibal_msg_utc_transmission_date_time": {
+        "Type": "String",
+        "Value": "2022-03-22T00:00:00.000Z"
+      }
+    },
+    "aircraft_table_data": {
+      "extendedMsn": "N07411",
+      "historyId": "N07411-2019-10-21",
+      "historyStartDate": "2019-10-21",
+      "historyEndDate": "",
+      "tailNumber": "JA10VA",
+      "operatorIcao": "APJ",
+      "aircraftType": "A320",
+      "engineVariant": "CFM56-5B4/3",
+      "isCurrent": "true",
+      "aircraftSeries": "A320-200",
+      "acNickName": "",
+      "contracts": [
+        "SKM-PROD-1.0-SHM-400",
+        "SKM-PROD-1.0-SHM-444"
+      ]
+    },
+    "decoded_data": {
+      "messageId": "A9A2NX3DM6PFBG61",
+      "acid": "JA10VA",
+      "aircraftType": "A320",
+      "msn": 7411,
+      "flightNumber": "MM312",
+      "transmissionDate": "2022-03-22T00:00:00.000Z",
+      "receptionDate": "2022-03-22T00:00:00.000Z",
+      "rawData": "QU O2MPR4Y\r\n.XYTSO7X 220000\r\n\u0002CFD\r\nFI MM0312/AN JA10VA\r\nDT JDL KIX1 220000 C00A\r\n-  MPF/AN.JA10VA/FIAPJ312    /DM220321223700/DARJAA/DSRJBB/220322NO WARNING OR FAULT MESSAGE ",
+      "messageType": "CMS",
+      "ownerIcao": "87Z",
+      "operatorIcao": "APJ",
+      "messageSubType": "PFR",
+      "departureAirport": "RJAA",
+      "departureAirportIata": "NRT",
+      "destinationAirport": "RJBB",
+      "destinationAirportIata": "KIX",
+      "messageFlightNumber": "APJ312",
+      "eventDate": "2022-03-21T22:37:00.000Z",
+      "notComplete": false
+    }
+  }

@@ -2,6 +2,7 @@ import { Atsu } from '../ATSU';
 import { CpdlcMessage } from '../messages/CpdlcMessage';
 import { AtsuMessageComStatus } from '../messages/AtsuMessage';
 
+// TODO: what is this
 export abstract class UplinkMonitor {
     private static positionMonitoringMessageIds = ['UM22', 'UM25', 'UM65', 'UM77', 'UM83', 'UM84', 'UM97', 'UM118', 'UM121', 'UM130'];
 

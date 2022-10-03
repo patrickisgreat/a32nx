@@ -1,0 +1,109 @@
+{
+    "metas": {
+      "cannibal_s3_bucket": {
+        "Type": "String",
+        "Value": "s3-app-2h23-724055273651-delivery-master-eu-west-1"
+      },
+      "cannibal_aircraft_msn": {
+        "Type": "String",
+        "Value": "1572"
+      },
+      "cannibal_operator_icao": {
+        "Type": "String",
+        "Value": "IBE"
+      },
+      "cannibal_msg_id": {
+        "Type": "String",
+        "Value": "417fa06f-b5f8-4596-9632-9f48327d2748"
+      },
+      "cannibal_msg_imi": {
+        "Type": "String",
+        "Value": "FLR"
+      },
+      "cannibal_msg_type": {
+        "Type": "String",
+        "Value": "CMS"
+      },
+      "cannibal_msg_is_pfr": {
+        "Type": "String",
+        "Value": "false"
+      },
+      "cannibal_msg_dto": {
+        "Type": "String",
+        "Value": "SAFaultMessageHeaderDtoV2"
+      },
+      "cannibal_msg_class": {
+        "Type": "String",
+        "Value": "CmsSaFaultMessage"
+      },
+      "cannibal_flight_number": {
+        "Type": "String",
+        "Value": "IB2002"
+      },
+      "cannibal_aircraft_type": {
+        "Type": "String",
+        "Value": "A320"
+      },
+      "cannibal_msg_version": {
+        "Type": "String",
+        "Value": "3"
+      },
+      "cannibal_owner_icao": {
+        "Type": "String",
+        "Value": "78X"
+      },
+      "cannibal_aircraft_family": {
+        "Type": "String",
+        "Value": "A320"
+      },
+      "cannibal_s3_key": {
+        "Type": "String",
+        "Value": "downlink/CMS/20190522/EC-IGK_2019-09-25T09-00-00.000Z_417fa06f-b5f8-4596-9632-9f48327d2748_V3.json"
+      },
+      "cannibal_aircraft_tailnumber": {
+        "Type": "String",
+        "Value": "EC-IGK"
+      },
+      "cannibal_msg_smi": {
+        "Type": "String",
+        "Value": "CFD"
+      },
+      "cannibal_list_applications": {
+        "Type": "String.Array",
+        "Value": "[\"/CFC/INT/1.0/ADMIN\"]"
+      },
+      "cannibal_msg_utc_transmission_date_time": {
+        "Type": "String",
+        "Value": "2019-09-25T09:00:00.000Z"
+      }
+    },
+    "decoded_data": {
+      "messageId": "417fa06f-b5f8-4596-9632-9f48327d2748",
+      "acid": "EC-IGK",
+      "aircraftType": "A320",
+      "msn": 1572,
+      "flightNumber": "IB2002",
+      "transmissionDate": "2019-09-25T09:00:00.000Z",
+      "receptionDate": "2019-09-25T09:00:00.000Z",
+      "rawData": "QU O2MNP4Y\r\n.XYTSO7X 221823\r\n\u0002CFD\r\nFI IB2001/AN EC-IGK\r\nDT QXS BCNW 221823 C10A\r\n-  FLR/FR19052218220036110005PRESS REG-V 4001HA2 OR  SOL 10HA2 OR SENSE LINE/IDBMC 2\n",
+      "messageType": "CMS",
+      "messageSubType": "FM",
+      "faultMessages": [
+        {
+          "eventDate": "2019-09-25T09:00:00.000Z",
+          "ata": "361100",
+          "text": "PRESS REG-V 4001HA2 OR SOL 10HA2 OR SENSE LINE",
+          "source": "BMC 2",
+          "flightPhase": 5,
+          "type": "INTERMITTENT",
+          "c2Afect": false,
+          "classNumber": 1,
+          "identifiers": ["ID 1",
+            "ID 2"]
+
+        }
+      ],
+      "ownerIcao": "AFR",
+      "operatorIcao": "AFR"
+    }
+  }

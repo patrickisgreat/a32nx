@@ -17,7 +17,7 @@
     "editor.formatOnSave": true
   },
   "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.defaultFormatter": "vscode.typescript-language-features",
     "editor.formatOnSave": true
   },
   "[javascriptreact]": {
@@ -57,5 +57,6 @@
                "cmd": "cargo fmt"
            }
     ]
-}
+},
+"cmake.sourceDirectory": "${workspaceFolder}/src/fdr2csv"
 }

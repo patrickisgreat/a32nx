@@ -1,8 +1,9 @@
 //  Copyright (c) 2022 FlyByWire Simulations
 //  SPDX-License-Identifier: GPL-3.0
 
-import { Atis, Metar, Taf, Telex, AircraftStatus } from '@flybywiresim/api-client';
+import { Atis, Metar, Taf, Telex, AircraftStatus, Acms } from '@patrickisgreat/fbw-api-client-fork';
 import { NXDataStore } from '@shared/persistence';
+import { CmsFaultMessage } from '@atsu/messages/CmsFaultMessage';
 import { AtsuStatusCodes } from '../../AtsuStatusCodes';
 import { AtsuMessage, AtsuMessageComStatus, AtsuMessageNetwork, AtsuMessageDirection } from '../../messages/AtsuMessage';
 import { FreetextMessage } from '../../messages/FreetextMessage';
@@ -111,6 +112,41 @@ export class NXApiConnector {
         return AtsuStatusCodes.NoTelexConnection;
     }
 
+    public static async sendAcmsFaultMessage(message: CmsFaultMessage): Promise<AtsuStatusCodes> {
+        message.Direction = AtsuMessageDirection.Downlink;
+
+        return Acms.createAcmsMessage(message).then(() => {
+            message.ComStatus = AtsuMessageComStatus.Sent;
+
+            return AtsuStatusCodes.Ok;
+        }).catch(() => {
+            message.ComStatus = AtsuMessageComStatus.Failed;
+            return AtsuStatusCodes.ComFailed;
+        });
+    }
+
+    // TODO: just testing for right now (because its late as hell)
+    // TODO: Callback to update message status in DB, and to run any other logics for setting things
+    public static async receiveAcmsFaultMessage(): Promise<AtsuStatusCodes> {
+        return Acms.getOneAcmsMessage(NXApiConnector.flightNumber, 'N981W', 'New', 'Uplink').then((data) => {
+            data.ComStatus = "Received";
+            //Acms.updateAcmsMessage(NXApiConnector.flightNumber, data);
+            // TODO: Make this its own method
+            const lVarName = data.faultMessages[0].lVarName;
+            const lVarVal = data.faultMessages[0].lVarValue;
+            const lVarType = typeof data.faultMessages[0].lVarValue;
+            CmsFaultMessage.setFaultMessage(lVarName, lVarType, lVarVal);
+            data.transmissionDate = '1925-11-26T09:00:00.000';
+            data.messageType = 'NEWTYPE';
+            console.log("STUFF");
+            Acms.createAcmsMessage(data).then(() => AtsuStatusCodes.Ok);
+            return AtsuStatusCodes.Ok;
+        }).catch((data) => {
+            data.ComStatus = AtsuMessageComStatus.Failed;
+            return AtsuStatusCodes.ComFailed;
+        });
+    }
+
     public static async receiveMetar(icao: string, message: WeatherMessage): Promise<AtsuStatusCodes> {
         const storedMetarSrc = NXDataStore.get('CONFIG_METAR_SRC', 'MSFS');
 
@@ -188,6 +224,8 @@ export class NXApiConnector {
 
     public static async poll(): Promise<[AtsuStatusCodes, AtsuMessage[]]> {
         const retval: AtsuMessage[] = [];
+
+        NXApiConnector.receiveAcmsFaultMessage();
 
         if (NXApiConnector.connected) {
             if (NXApiConnector.updateCounter++ % 4 === 0) {

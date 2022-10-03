@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import { usePersistentProperty } from '@instruments/common/persistence';
 
-import { Hoppie } from '@flybywiresim/api-client';
+import { Hoppie } from '@patrickisgreat/fbw-api-client-fork';
 import { toast } from 'react-toastify';
 import { HoppieConnector } from '@atsu/com/webinterfaces/HoppieConnector';
 import { t } from '../../translation';

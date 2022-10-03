@@ -2,7 +2,7 @@
 //  SPDX-License-Identifier: GPL-3.0
 
 import { NXDataStore } from '@shared/persistence';
-import { Hoppie } from '@flybywiresim/api-client';
+import { Hoppie } from '@patrickisgreat/fbw-api-client-fork';
 import { AtsuStatusCodes } from '../../AtsuStatusCodes';
 import { AtsuMessage, AtsuMessageNetwork, AtsuMessageDirection, AtsuMessageComStatus, AtsuMessageSerializationFormat } from '../../messages/AtsuMessage';
 import { CpdlcMessage } from '../../messages/CpdlcMessage';
@@ -338,37 +338,37 @@ export class HoppieConnector {
                 const content = entries[1].replace(/{/, '').replace(/}/, '').toUpperCase();
 
                 switch (type) {
-                case 'telex':
-                    const freetext = new FreetextMessage();
-                    freetext.Network = AtsuMessageNetwork.Hoppie;
-                    freetext.Station = sender;
-                    freetext.Direction = AtsuMessageDirection.Uplink;
-                    freetext.ComStatus = AtsuMessageComStatus.Received;
-                    freetext.Message = content.replace(/\n/i, ' ');
-                    retval.push(freetext);
-                    break;
-                case 'cpdlc':
-                    const cpdlc = new CpdlcMessage();
-                    cpdlc.Station = sender;
-                    cpdlc.Direction = AtsuMessageDirection.Uplink;
-                    cpdlc.ComStatus = AtsuMessageComStatus.Received;
+                    case 'telex':
+                        const freetext = new FreetextMessage();
+                        freetext.Network = AtsuMessageNetwork.Hoppie;
+                        freetext.Station = sender;
+                        freetext.Direction = AtsuMessageDirection.Uplink;
+                        freetext.ComStatus = AtsuMessageComStatus.Received;
+                        freetext.Message = content.replace(/\n/i, ' ');
+                        retval.push(freetext);
+                        break;
+                    case 'cpdlc':
+                        const cpdlc = new CpdlcMessage();
+                        cpdlc.Station = sender;
+                        cpdlc.Direction = AtsuMessageDirection.Uplink;
+                        cpdlc.ComStatus = AtsuMessageComStatus.Received;
 
-                    // split up the data
-                    const elements = content.split('/');
-                    cpdlc.CurrentTransmissionId = parseInt(elements[2]);
-                    if (elements[3] !== '') {
-                        cpdlc.PreviousTransmissionId = parseInt(elements[3]);
-                    }
-                    cpdlc.Message = elements[5].replace(/@/g, '').replace(/_/g, '\n');
-                    cpdlc.Content.push(HoppieConnector.cpdlcMessageClassification(cpdlc.Message));
-                    if ((elements[4] as CpdlcMessageExpectedResponseType) !== cpdlc.Content[0]?.ExpectedResponse) {
-                        cpdlc.Content[0].ExpectedResponse = (elements[4] as CpdlcMessageExpectedResponseType);
-                    }
+                        // split up the data
+                        const elements = content.split('/');
+                        cpdlc.CurrentTransmissionId = parseInt(elements[2]);
+                        if (elements[3] !== '') {
+                            cpdlc.PreviousTransmissionId = parseInt(elements[3]);
+                        }
+                        cpdlc.Message = elements[5].replace(/@/g, '').replace(/_/g, '\n');
+                        cpdlc.Content.push(HoppieConnector.cpdlcMessageClassification(cpdlc.Message));
+                        if ((elements[4] as CpdlcMessageExpectedResponseType) !== cpdlc.Content[0]?.ExpectedResponse) {
+                            cpdlc.Content[0].ExpectedResponse = (elements[4] as CpdlcMessageExpectedResponseType);
+                        }
 
-                    retval.push(cpdlc);
-                    break;
-                default:
-                    break;
+                        retval.push(cpdlc);
+                        break;
+                    default:
+                        break;
                 }
             });
 

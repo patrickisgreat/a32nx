@@ -268,6 +268,7 @@ const PseudoFWC: React.FC = () => {
     const [apuAvail] = useSimVar('L:A32NX_OVHD_APU_START_PB_IS_AVAILABLE', 'bool', 500);
 
     const [brakeFan] = useSimVar('L:A32NX_BRAKE_FAN', 'bool', 500);
+    const [testVar] = useSimVar('L:TEST_VAR', 'bool');
     const [dmcSwitchingKnob] = useSimVar('L:A32NX_EIS_DMC_SWITCHING_KNOB', 'enum', 500);
     const [ndXfrKnob] = useSimVar('L:A32NX_ECAM_ND_XFR_SWITCHING_KNOB', 'bool', 500);
     const [gpwsFlaps3] = useSimVar('L:A32NX_GPWS_FLAPS3', 'bool', 500);
@@ -493,6 +494,16 @@ const PseudoFWC: React.FC = () => {
     }
 
     const EWDMessageFailures: EWDMessageDict = {
+        3400209: { // TEST
+            flightPhaseInhib: [2],
+            simVarIsActive: testVar,
+            whichCodeToReturn: [0, 1],
+            codesToReturn: ['320001001', '999999999'],
+            memoInhibit: false,
+            failure: 3,
+            sysPage: -1,
+            side: 'LEFT',
+        },
         3400210: { // OVERSPEED FLAPS FULL
             flightPhaseInhib: [2, 3, 4, 8, 9, 10],
             simVarIsActive: flapsIndex === 5 && computedAirSpeedToNearest2 > 181,
@@ -1579,6 +1590,7 @@ const PseudoFWC: React.FC = () => {
         //
     }, [ac1BusPowered,
         ac2BusPowered,
+        testVar,
         adirsMessage1(adirsRemainingAlignTime, (engine1State > 0 || engine2State > 0)),
         adirsMessage2(adirsRemainingAlignTime, (engine1State > 0 || engine2State > 0)),
         adiru1State,
