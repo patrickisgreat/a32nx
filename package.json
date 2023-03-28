@@ -144,6 +144,7 @@
     "webpack-dev-server": "^3.11.1"
   },
   "dependencies": {
+    "@patrickisgreat/fbw-api-client-fork": "0.16.5",
     "@flybywiresim/api-client": "^0.16.2",
     "@flybywiresim/react-components": "^0.3.1",
     "@flybywiresim/tailwind-config": "^0.5.0",
