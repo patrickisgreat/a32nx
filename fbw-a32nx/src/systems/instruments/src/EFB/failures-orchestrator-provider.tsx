@@ -76,7 +76,7 @@ const createOrchestrator = () => new FailuresOrchestrator('A32NX', [
     [34, A320Failure.RadioAltimeter2, 'RA 2'],
 ]);
 
-const Context = React.createContext<FailuresOrchestratorContext>({
+export const Context = React.createContext<FailuresOrchestratorContext>({
     allFailures: [],
     activeFailures: new Set<number>(),
     changingFailures: new Set<number>(),

@@ -38,6 +38,7 @@ import { Checklists, setAutomaticItemStates } from './Checklists/Checklists';
 import { CHECKLISTS } from './Checklists/Lists';
 import { setChecklistItems } from './Store/features/checklists';
 import { FlyPadPage } from './Settings/Pages/FlyPadPage';
+import BeefSupremeApiConnector from 'instruments/src/EFB/beefsupreme-api-connector';
 
 const BATTERY_DURATION_CHARGE_MIN = 180;
 const BATTERY_DURATION_DISCHARGE_MIN = 540;
@@ -311,6 +312,7 @@ const Efb = () => {
     case PowerStates.LOADED:
         return (
             <NavigraphContext.Provider value={navigraph}>
+                <BeefSupremeApiConnector />
                 <ModalContainer />
                 <PowerContext.Provider value={{ powerState, setPowerState }}>
                     <div className="bg-theme-body" style={{ transform: `translateY(-${offsetY}px)` }}>
